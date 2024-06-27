@@ -8,6 +8,8 @@ import com.shofiqul.library.repositories.UsersRepo;
 import com.shofiqul.library.services.UserServices;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 
 import java.util.List;
 
@@ -18,7 +20,7 @@ public class UserServicesImpl implements UserServices {
     private final RolesRepo rolesRepo;
 
     @Override
-    public void createUser(UserRegDto regDto) {
+    public void createUser(UserRegDto regDto, Model model, BindingResult result) {
         Roles role = rolesRepo.findByName("USER");
         Users user = Users.builder()
                 .name(regDto.getName())

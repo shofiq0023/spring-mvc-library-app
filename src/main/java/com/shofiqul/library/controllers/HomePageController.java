@@ -14,4 +14,9 @@ public class HomePageController {
     public String getHomePage() {
         return "books";
     }
+    
+    @GetMapping("/list")
+    public String getListPage() {
+    	return "list";
+    }
 }

@@ -16,7 +16,10 @@ public class SpringSecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(req ->
-                        req.requestMatchers("/login", "/register", "/css/**", "/js/**", "/books", "/").permitAll()
+                        req.requestMatchers("/login", "/register", "/css/**", "/js/**", "/books", "/")
+                        .permitAll()
+                        .anyRequest()
+                        .authenticated()
                 )
                 .formLogin(form -> form
                         .loginPage("/login")

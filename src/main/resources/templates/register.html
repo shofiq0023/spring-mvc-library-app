@@ -10,7 +10,7 @@
 <body>
 <div class="container" layout:fragment="body">
     <div class="login mt-5">
-        <h4 class="my-3">Register</h4>
+        <h4 class="my-3">Create a new account</h4>
         <form class="form" method="post" role="form" th:action="@{/create/user}" th:object="${reg}">
             <div class="mb-3">
                 <label for="name" class="form-label">Name</label>
@@ -28,6 +28,11 @@
                 <label for="password" class="form-label">Password</label>
                 <input type="password" class="form-control" id="password" name="password" th:field="${reg.password}">
             </div>
+            <div class="mb-3">
+                <label for="conPassword" class="form-label">Confirm password</label>
+                <input type="password" class="form-control" id="conPassword" name="conPassword" th:field="${reg.conPassword}">
+            </div>
+            
             <p>Already have an account? <a th:href="@{/register}">Login</a></p>
             <button th:href="@{/register}" type="submit" class="btn btn-primary">Register</button>
         </form>
